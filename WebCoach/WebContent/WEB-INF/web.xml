@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WebCoach</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <jsp-config>
+    <jsp-property-group>
+      <display-name>header_and_footer</display-name>
+      <url-pattern>/pages/main.jsp</url-pattern>
+      <url-pattern>/pages/teachers.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <include-prelude>/WEB-INF/jspf/header.jsp</include-prelude>
+      <include-coda>/WEB-INF/jspf/footer.jsp</include-coda>
+    </jsp-property-group>
+  </jsp-config>
+  <servlet>
+    <servlet-name>MainServlet</servlet-name>
+    <servlet-class>by.coach.servlets.MainServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainServlet</servlet-name>
+    <url-pattern>/MainServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowImage</servlet-name>
+    <servlet-class>by.coach.servlets.ShowImage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowImage</servlet-name>
+    <url-pattern>/ShowImage</url-pattern>
+  </servlet-mapping>
+  
+	<error-page>
+		<error-code>404</error-code>
+		<location>/pages/error/error.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/pages/error/error500.jsp</location>
+	</error-page>
+	 <error-page>
+        <exception-type>java.lang.RuntimeException</exception-type>
+        <location>/pages/error/error.jsp</location>
+    </error-page>
+	
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/pages/error/error.jsp</location>
+	</error-page>
+
+</web-app>
