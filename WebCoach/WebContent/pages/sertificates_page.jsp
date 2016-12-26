@@ -12,25 +12,25 @@
 <body>
 
 <jsp:useBean id="teacherList" class="by.coach.beans.TeacherList" scope="page"/>
-<div class="main">
-		<%
-		 	request.setCharacterEncoding("UTF-8"); 
-			ArrayList<byte[]> 	listCertificates = (ArrayList<byte[]>)request.getSession().getAttribute("listOfCertificates");
-			
-		%>
+		<div class="main">
+			<%
+			 	request.setCharacterEncoding("UTF-8"); 
+				ArrayList<byte[]> 	listCertificates = (ArrayList<byte[]>)request.getSession().getAttribute("listOfCertificates");
+				
+			%>
 
-		<h2> Список сертификатов пользователя ${nameTeacher}  (найдено: ${countOfCertificates}):</h2>
-	
-  	  	<% 
-   				int count=0; 
-				for (byte[] cert:listCertificates){ 
-		%>
-
-	 <li><a href="WorkPDFServlet?numberOfCert=<%=count %>" > Сертификат № <%=++count %> </a></li> </br>
-
-		<% request.setAttribute("listOfCertificates", listCertificates); }  %>
+			<h2> Список сертификатов пользователя ${nameTeacher}  (найдено: ${countOfCertificates}):</h2>
 		
-		<h4><a href="TeacherServlet?skill_id=0" style="text-align: left;"> На главную страницу. </a></h4>
-				</div>	
+	  	  	<% 
+	   				int count=0; 
+					for (byte[] cert:listCertificates){ 
+			%>
+
+	 			li><a href="WorkPDFServlet?numberOfCert=<%=count %>" > Сертификат № <%=++count %> </a></li> </br>
+
+			<% request.setAttribute("listOfCertificates", listCertificates); }  %>
+		
+				<h4><a href="TeacherServlet?skill_id=0" style="text-align: left;"> На главную страницу. </a></h4>
+		</div>	
 </body>
 </html>

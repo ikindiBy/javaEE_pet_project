@@ -101,7 +101,6 @@ public class Teacher {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return name + " is " + typeOfSkill + " teacher. And has "
 				+ experianceAge + " years of experiens!";
 	}
